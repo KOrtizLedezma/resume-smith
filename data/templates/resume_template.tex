@@ -1,0 +1,150 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-3pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \scshape {@@NAME@@}} \\ \vspace{1pt}
+    \small{@@PHONE@@} $|$ \href{mailto:@@EMAIL@@}{\underline{@@EMAIL@@}} $|$
+    \href{@@GITHUB@@}{\underline{Github}} $|$
+    \href{@@LINKEDIN@@}{\underline{LinkedIn}} $|$
+    \href{@@PORTFOLIO@@}{\underline{Portfolio}}
+\end{center}
+
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {@@EDU1_INSTITUTION@@} {@@EDU1_LOCATION@@}
+      {@@EDU1_DEGREE@@} {@@EDU1_DATE@@}
+    \resumeSubheading
+      {@@EDU2_INSTITUTION@@} {@@EDU2_LOCATION@@}
+      {@@EDU2_DEGREE@@} {@@EDU2_DATE@@}
+  \resumeSubHeadingListEnd
+
+\section{Projects}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{@@PROJECT1_NAME@@} $|$ \emph{@@PROJECT1_TECH@@}}{}
+        \resumeItemListStart
+          \resumeItem{@@PROJECT1_BULLET1@@}
+          \resumeItem{@@PROJECT1_BULLET2@@}
+          \resumeItem{@@PROJECT1_BULLET3@@}
+        \resumeItemListEnd
+        \resumeProjectHeading
+          {\textbf{@@PROJECT2_NAME@@} $|$ \emph{@@PROJECT2_TECH@@}}{}
+        \resumeItemListStart
+          \resumeItem{@@PROJECT2_BULLET1@@}
+          \resumeItem{@@PROJECT2_BULLET2@@}
+          \resumeItem{@@PROJECT2_BULLET3@@}
+        \resumeItemListEnd
+        \resumeProjectHeading
+          {\textbf{@@PROJECT3_NAME@@} $|$ \emph{@@PROJECT3_TECH@@}}{}
+        \resumeItemListStart
+          \resumeItem{@@PROJECT3_BULLET1@@}
+          \resumeItem{@@PROJECT3_BULLET2@@}
+          \resumeItem{@@PROJECT3_BULLET3@@}
+        \resumeItemListEnd
+        \resumeProjectHeading
+          {\textbf{@@PROJECT4_NAME@@} $|$ \emph{@@PROJECT4_TECH@@}}{}
+        \resumeItemListStart
+          \resumeItem{@@PROJECT4_BULLET1@@}
+          \resumeItem{@@PROJECT4_BULLET2@@}
+          \resumeItem{@@PROJECT4_BULLET3@@}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {@@EXP_TITLE@@}{@@EXP_LOCATION@@}
+      {@@EXP_EMPLOYER@@}{@@EXP_DATES@@}
+      \resumeItemListStart
+        \resumeItem{@@EXP_BULLET1@@}
+        \resumeItem{@@EXP_BULLET2@@}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+  \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+      \textbf{Languages}{: @@SKILL_LANGUAGES@@} \\
+      \textbf{Frameworks}{: @@SKILL_FRAMEWORKS@@} \\
+      \textbf{Databases \& Libraries}{: @@SKILL_DB_LIBS@@} \\
+      \textbf{Developer Tools}{: @@SKILL_TOOLS@@} \\
+    }}
+  \end{itemize}
+
+\end{document}

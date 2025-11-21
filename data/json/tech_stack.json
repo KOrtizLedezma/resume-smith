@@ -1,0 +1,20 @@
+{
+  "skills": [
+    {
+      "name": "Languages",
+      "items": ["", ""]
+    },
+    {
+      "name": "Frameworks",
+      "items": ["", ""]
+    },
+    {
+      "name": "Development Tools",
+      "items": ["", ""]
+    },
+    {
+      "name": "Databases & Libraries",
+      "items": ["", ""]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+digraph ProjectFlow {
+    rankdir=LR;
+    node [shape=box, style=rounded];
+
+    subgraph cluster_main {
+        label="Entry";
+        style=dashed;
+        main [label="scripts/main.py"];
+    }
+
+    subgraph cluster_job_desc {
+        label="Job Description";
+        style=dashed;
+        job_desc [label="scripts/job_description.py"];
+        jd_gen [label="utils/job_description/job_description_generator.py"];
+        jd_cn_prompt [label="company_name_prompt.py"];
+        jd_title_prompt [label="job_title_prompt.py"];
+        jd_llm_cn [label="utils/llm_client.py\n(company name)"];
+        jd_llm_title [label="utils/llm_client.py\n(job title)"];
+    }
+
+    subgraph cluster_tech_stack {
+        label="Tech Stack";
+        style=dashed;
+        tech_stack [label="scripts/tech_stack.py"];
+        ts_prompt [label="tech_stack_prompt_generator.py"];
+        ts_llm [label="utils/llm_client.py\n(tech stack)"];
+        ts_merge [label="merge_tech_stack_into_resume.py"];
+    }
+
+    subgraph cluster_projects {
+        label="Projects";
+        style=dashed;
+        projects [label="scripts/projects.py"];
+        proj_prompt [label="projects_prompt_generator.py"];
+        proj_llm_select [label="utils/llm_client.py\n(select projects)"];
+        proj_expand [label="projects_expander.py"];
+        proj_rewrite_prompt [label="rewrite_prompt_generator.py"];
+        proj_llm_rewrite [label="utils/llm_client.py\n(rewrite bullets)"];
+        proj_validate [label="utils/json_validator.py"];
+        proj_merge [label="merge_projects_into_resume.py"];
+    }
+
+    subgraph cluster_cover_letter {
+        label="Cover Letter";
+        style=dashed;
+        cover_letter [label="scripts/cover_letter.py"];
+        cl_prompt [label="cover_letter_prompt.py"];
+        cl_llm [label="utils/llm_client.py\n(cover body)"];
+        cl_fill [label="fill_cover_letter_fields.py"];
+    }
+
+    subgraph cluster_builder {
+        label="PDF Generation";
+        style=dashed;
+        builder [label="scripts/generate_resume_and_cover_letter.py"];
+        resume_tex [label="latex_resume_filler.py"];
+        resume_validate [label="latex_validator.py\n(resume)"];
+        output_path [label="create_output_path.py"];
+        resume_pdf [label="tex_to_pdf.py\n(resume)"];
+        cl_tex [label="latex_cover_letter_filler.py"];
+        cl_validate [label="latex_validator.py\n(cover letter)"];
+        cl_pdf [label="tex_to_pdf.py\n(cover letter)"];
+    }
+
+    cleanup [label="utils/cleanup_file.py", shape=note];
+
+    main -> job_desc -> tech_stack -> projects -> cover_letter -> builder;
+
+    job_desc -> jd_gen;
+    jd_gen -> jd_cn_prompt -> jd_llm_cn;
+    jd_gen -> jd_title_prompt -> jd_llm_title;
+    {jd_llm_cn jd_llm_title} -> cleanup;
+
+    tech_stack -> ts_prompt -> ts_llm -> ts_merge;
+    ts_merge -> cleanup;
+
+    projects -> proj_prompt -> proj_llm_select -> proj_expand -> proj_rewrite_prompt -> proj_llm_rewrite -> proj_validate -> proj_merge;
+    proj_merge -> cleanup;
+
+    cover_letter -> cl_prompt -> cl_llm -> cl_fill -> cleanup;
+
+    builder -> resume_tex -> resume_validate -> output_path -> resume_pdf;
+    builder -> cl_tex -> cl_validate -> cl_pdf;
+    builder -> cleanup;
+}

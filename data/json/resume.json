@@ -1,0 +1,33 @@
+{
+  "name": "",
+  "contact": {
+    "phone": "",
+    "email": ""
+  },
+  "links": [{ "Github": "" }, { "LinkedIn": "" }, { "Portfolio": "" }],
+  "education": [
+    {
+      "institution": "",
+      "location": "",
+      "degree": "",
+      "graduation_date": ""
+    }
+  ],
+  "projects": [{}, {}, {}, {}],
+  "experience": [
+    {
+      "title": "",
+      "employer": "",
+      "location": "",
+      "start_date": "",
+      "end_date": "",
+      "bullets": ["", ""]
+    }
+  ],
+  "technical_skills": {
+    "languages": [],
+    "Frameworks": [],
+    "Databases & Libraries": [],
+    "Development Tools": []
+  }
+}

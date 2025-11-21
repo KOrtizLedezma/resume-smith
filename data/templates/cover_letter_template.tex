@@ -1,0 +1,51 @@
+\documentclass[11pt]{letter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{eso-pic}
+\usepackage{xcolor}
+
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+\definecolor{gr}{RGB}{225,225,225}
+
+\begin{document}
+
+\AddToShipoutPictureBG{
+    \color{gr}
+    \AtPageUpperLeft{\rule[-1.3in]{\paperwidth}{1.3in}}
+}
+
+\begin{center}
+    {\fontsize{24}{0}\selectfont\scshape @@NAME@@}
+
+    \href{mailto:@@EMAIL@@}{\faEnvelope\enspace @@EMAIL@@}\hfill
+    \href{https://www.@@LINKEDIN@@}{\faLinkedinIn\enspace @@LINKEDIN@@}\hfill
+    \href{tel:@@PHONE@@}{\faPhone\enspace @@PHONE@@}\hfill
+    \faMapMarker\enspace @@LOCATION@@
+\end{center}
+
+\vspace{0.2in}
+
+\today\\
+Hiring Manager\\
+@@COMPANY@@\\
+
+\vspace{0.5em}
+Dear Hiring Manager,\\[0.5em]
+
+\vspace{-0.1in}\setlength\parindent{24pt}
+\noindent @@BODY@@
+
+\vspace{0.2in}
+Sincerely,\\[1.5em]
+
+\begin{flushright}
+@@NAME@@\\
+Applicant
+\end{flushright}
+
+\end{document}

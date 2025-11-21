@@ -1,0 +1,33 @@
+# Bytecode / caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environments / tooling
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+
+# Local config / secrets
+.env
+
+# Build and generated outputs
+data/outputs/
+data/prompts/
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# OS junk
+.DS_Store
+Thumbs.db
