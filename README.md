@@ -17,7 +17,7 @@ Generate a tailored resume and cover letter from your existing data plus a targe
 - `data/json/`: base resume, projects, tech stack, cover letter fields
 - `data/input/job_description.txt`: paste the target job description here
 - `data/templates/`: LaTeX templates for resume and cover letter
-- `data/outputs/`: generated intermediates and final PDFs (per company/role/date)
+- `data/output/`: generated intermediates and final PDFs (per company/role/date)
 - `docs/project_flow.png`: flow diagram of the process
 
 ## Quick Start
@@ -27,7 +27,7 @@ Generate a tailored resume and cover letter from your existing data plus a targe
    ```bash
    python3 scripts/main.py
    ```
-3. Collect outputs from `data/outputs/<Company>/<Role_Date>/` (`resume.pdf`, `cover_letter.pdf`).
+3. Collect outputs from `data/output/<Company>/<Role_Date>/` (`resume.pdf`, `cover_letter.pdf`).
 
 ## Pipeline (overview)
 
@@ -48,4 +48,4 @@ Generate a tailored resume and cover letter from your existing data plus a targe
 
 - Missing LaTeX fonts or packages: install a full TeX distribution (e.g., TeX Live).
 - LLM call errors: ensure `ollama` is running and `mistral7b-custom` is available locally.
-- If PDFs are not created, check logs in `data/outputs/*.log` for TeX errors.
+- If PDFs are not created, check logs in `data/output/*.log` for TeX errors.

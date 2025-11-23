@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from pathlib import Path
 
 # --------------------Tech Stack Processing--------------------
 
@@ -9,7 +10,8 @@ print("Tech Stack prompt generation completed.\n")
 
 # 2) Run the AI Model to review the tech stack
 tech_stack_prompt_path = "data/prompts/tech_stack_prompt.txt"
-selected_tech_stack_output = "data/outputs/selected_tech_stack.txt"
+selected_tech_stack_output = "data/output/selected_tech_stack.txt"
+Path("data/output").mkdir(parents=True, exist_ok=True)
 
 with open(selected_tech_stack_output, "w") as out_file:
     subprocess.run(
@@ -27,9 +29,9 @@ subprocess.run(
         "python3",
         "utils/tech_stack/merge_tech_stack_into_resume.py",
         "data/json/resume.json",
-        "data/outputs/selected_tech_stack.txt",
+        "data/output/selected_tech_stack.txt",
         "data/json/tech_stack.json",
-        "data/outputs/resume_update_part_1.json",
+        "data/output/resume_update_part_1.json",
     ],
     check=True,
 )
@@ -39,7 +41,7 @@ print("Tech Stack merged into resume.\n")
 # 4) Remove unnecessary files
 files_to_remove = [
     "data/prompts/tech_stack_prompt.txt",
-    "data/outputs/selected_tech_stack.txt",
+    "data/output/selected_tech_stack.txt",
 ]
 
 for fp in files_to_remove:

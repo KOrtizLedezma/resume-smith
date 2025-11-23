@@ -41,7 +41,7 @@ def expand_selected_projects(projects_file: Path, selected_ids_file: Path, outpu
 
 if __name__ == "__main__":
     projects_path = Path("data/json/projects.json")
-    selected_ids_path = Path("data/outputs/selected_project_ids.txt")
-    output_path = Path("data/outputs/expanded_projects.json")
+    selected_ids_path = Path("data/output/selected_project_ids.txt")
+    output_path = Path("data/output/expanded_projects.json")
 
     expand_selected_projects(projects_path, selected_ids_path, output_path)

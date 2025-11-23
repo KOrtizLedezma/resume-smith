@@ -41,7 +41,7 @@ def build_cover_body_prompt(resume_json_str: str, job_description: str) -> str:
 if __name__ == "__main__":
     with open("data/prompts/cover_letter_body_prompt.txt", "w") as out_file:
         prompt = build_cover_body_prompt(
-            resume_json_str=Path("data/outputs/resume_updated.json").read_text(),
+            resume_json_str=Path("data/output/resume_updated.json").read_text(),
             job_description=Path("data/input/job_description.txt").read_text()
         )
         out_file.write(prompt)

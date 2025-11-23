@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from pathlib import Path
 
 # --------------------Job Description Processing--------------------
 
@@ -14,7 +15,9 @@ print("Company name prompt creation completed.\n")
 # Run the AI Model to extract company name
 company_name_prompt_path = "data/prompts/company_name_prompt.txt"
 
-with open("data/outputs/company_name.txt", "w") as out_file:
+Path("data/output").mkdir(parents=True, exist_ok=True)
+
+with open("data/output/company_name.txt", "w") as out_file:
     subprocess.run(
         ["python3", "utils/llm_client.py", company_name_prompt_path, "mistral7b-custom"],
         stdout=out_file,
@@ -28,7 +31,7 @@ print("Job title prompt creation completed.\n")
 
 # Run the AI Model to extract job title
 job_title_prompt_path = "data/prompts/job_title_prompt.txt"
-with open("data/outputs/job_title.txt", "w") as out_file:
+with open("data/output/job_title.txt", "w") as out_file:
     subprocess.run(
         ["python3", "utils/llm_client.py", job_title_prompt_path, "mistral7b-custom"],
         stdout=out_file,

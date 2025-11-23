@@ -14,7 +14,7 @@ env/
 .env
 
 # Build and generated outputs
-data/outputs/
+data/output/
 data/prompts/
 
 # LaTeX auxiliary files

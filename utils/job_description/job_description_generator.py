@@ -1,3 +1,5 @@
+from os import mkdir
+
 def get_job_description():
     print("Type the position description here, include the Company information if available.")
     print("When you're done, type a single line with END and press Enter.\n")

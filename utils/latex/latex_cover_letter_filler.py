@@ -43,7 +43,7 @@ def escape_for_latex(text: str) -> str:
 def generate_cover_letter_single_tex(
     template_path: str | Path,
     json_path: str | Path,
-    output_path: str | Path = "data/outputs/cover_letter.tex",
+    output_path: str | Path = "data/output/cover_letter.tex",
 ):
     data = load_json(json_path)
     tex = load_template(template_path)
@@ -74,6 +74,6 @@ def generate_cover_letter_single_tex(
 if __name__ == "__main__":
     generate_cover_letter_single_tex(
         template_path="data/templates/cover_letter_template.tex",
-        json_path="data/outputs/cover_letter_filled.json",
-        output_path="data/outputs/cover_letter.tex",
+        json_path="data/output/cover_letter_filled.json",
+        output_path="data/output/cover_letter.tex",
     )

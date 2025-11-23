@@ -8,7 +8,9 @@ def load_template(path):
     return Path(path).read_text(encoding="utf-8")
 
 def save_output(path, content):
-    Path(path).write_text(content, encoding="utf-8")
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
 
 def replace(template: str, placeholder: str, value: str):
     return template.replace(placeholder, value)
@@ -75,6 +77,6 @@ def generate_resume(tex_template_path, data_json_path, output_path):
 if __name__ == "__main__":
     generate_resume(
         tex_template_path="data/templates/resume_template.tex",
-        data_json_path="data/outputs/resume_updated.json",
-        output_path="data/outputs/resume.tex"
+        data_json_path="data/output/resume_updated.json",
+        output_path="data/output/resume.tex"
     )

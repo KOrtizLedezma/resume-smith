@@ -43,7 +43,7 @@ def build_prompt(job_description: str, project_file_contents: str) -> str:
 
 
 if __name__ == "__main__":
-    projects_path = Path("data/outputs/expanded_projects.json")
+    projects_path = Path("data/output/expanded_projects.json")
     jd_path = Path("data/input/job_description.txt")
     prompt_output_path = Path("data/prompts/rewrite_projects_prompt.txt")
 

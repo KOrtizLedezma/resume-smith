@@ -7,7 +7,8 @@ print("Cover letter prompt generation completed.\n")
 
 # Run the AI Model to generate the cover letter body
 cover_letter_prompt_path = "data/prompts/cover_letter_body_prompt.txt"
-with open("data/outputs/cover_letter_body.txt", "w") as out_file:
+Path("data/output").mkdir(parents=True, exist_ok=True)
+with open("data/output/cover_letter_body.txt", "w") as out_file:
     subprocess.run(
         ["python3", "utils/llm_client.py", cover_letter_prompt_path, "mistral7b-custom"],
         stdout=out_file,
@@ -22,7 +23,7 @@ print("Cover letter JSON filling completed.\n")
 # Remove unnecessary files
 files_to_remove = [
     "data/prompts/cover_letter_body_prompt.txt",
-    "data/outputs/cover_letter_body.txt"
+    "data/output/cover_letter_body.txt"
 ]
 
 for file_path in files_to_remove:
